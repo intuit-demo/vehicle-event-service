@@ -1,0 +1,26 @@
+server:
+  port: 8085
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: intuit
+  kafka:
+    bootstrap-servers: 'DESKTOP-P9F94AL:9092'
+    consumer-vehicle-events:
+      topic: 'vehicle.events.topic'
+      group-id: 'vehicle-events-listener-service'
+      auto-offset-reset: 'earliest'
+    consumer-vehicle-overspeed-events:
+      topic: 'intuit.overspeed.vehicleevents'
+      group-id: 'vehicle-overspeed-events-listener-service'
+      auto-offset-reset: 'earliest'
+
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+    path: /swagger-ui-custom.html
+  api-docs:
+    path: /api-docs
