@@ -1,5 +1,6 @@
 package com.intuit.vehicleeventservice.service.vehicle;
 
+import com.intuit.vehicleeventservice.common.exceptions.ResourceNotFoundException;
 import com.intuit.vehicleeventservice.common.mapper.VehicleEventMapper;
 import com.intuit.vehicleeventservice.dao.entities.VehicleEntity;
 import com.intuit.vehicleeventservice.dao.repositories.VehicleRepository;
@@ -28,7 +29,7 @@ public class VehicleEventService implements com.intuit.vehicleeventservice.servi
         VehicleEntity vehicleEntity = new VehicleEntity();
         VehicleEntity.VehicleEntityId vehicleEntityId = new VehicleEntity.VehicleEntityId();
         String[] s = event.getRegistrationNumber().split("-");
-        if(s.length > 1) {
+        if (s.length > 1) {
             vehicleEntityId.setDistrict(s[0]);
             vehicleEntityId.setRegistrationNumber(s[1]);
         } else {
@@ -61,6 +62,10 @@ public class VehicleEventService implements com.intuit.vehicleeventservice.servi
         Example<VehicleEntity> example = Example.of(vehicleEntity);
 
         var e = vehicleRepository.findAll(example);
+
+        if (e.isEmpty()) {
+            throw new ResourceNotFoundException(String.format("id not found %s", id));
+        }
 
         return VehicleEventMapper.INSTANCE.vehicleEntityToEvents(e);
     }

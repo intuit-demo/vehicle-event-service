@@ -4,11 +4,11 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: intuit
+      host:
+      port:
+      database:
   kafka:
-    bootstrap-servers: '192.168.1.4:9092'
+    bootstrap-servers:
     consumer-vehicle-events:
       topic: 'vehicle.events'
       group-id: 'vehicle-events-listener-service'

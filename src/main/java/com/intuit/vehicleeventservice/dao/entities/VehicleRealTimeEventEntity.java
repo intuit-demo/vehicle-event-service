@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @ToString
-@Document(collection = "vehicle.events.topic")
+@Document(collection = "vehicle.events")
 public class VehicleRealTimeEventEntity {
 
     @Id

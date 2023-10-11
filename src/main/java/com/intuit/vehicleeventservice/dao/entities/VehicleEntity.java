@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @ToString
-@Document(collection = "intuit.vehicles")
+@Document(collection = "vehicles")
 public class VehicleEntity {
 
     @Id

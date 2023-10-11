@@ -2,8 +2,8 @@ package com.intuit.vehicleeventservice.service.kafka.listener;
 
 import com.intuit.vehicleeventservice.service.dto.VehicleEvent;
 import com.intuit.vehicleeventservice.service.dto.VehicleRealTimeEvent;
-import com.intuit.vehicleeventservice.service.vehicle.VehicleRealTimeEventService;
 import com.intuit.vehicleeventservice.service.vehicle.VehicleEventService;
+import com.intuit.vehicleeventservice.service.vehicle.VehicleRealTimeEventService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
